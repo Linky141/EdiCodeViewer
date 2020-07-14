@@ -1,0 +1,22 @@
+c:\users\staz2020\documents\visual studio 2010\Projects\EDICodeViewer\EDICodeViewer\bin\Debug\EDICodeViewer.exe
+c:\users\staz2020\documents\visual studio 2010\Projects\EDICodeViewer\EDICodeViewer\bin\Debug\EDICodeViewer.pdb
+c:\users\staz2020\documents\visual studio 2010\Projects\EDICodeViewer\EDICodeViewer\obj\x86\Debug\MainWindow.baml
+c:\users\staz2020\documents\visual studio 2010\Projects\EDICodeViewer\EDICodeViewer\obj\x86\Debug\MainWindow.g.cs
+c:\users\staz2020\documents\visual studio 2010\Projects\EDICodeViewer\EDICodeViewer\obj\x86\Debug\App.g.cs
+c:\users\staz2020\documents\visual studio 2010\Projects\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer_MarkupCompile.cache
+c:\users\staz2020\documents\visual studio 2010\Projects\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer.g.resources
+c:\users\staz2020\documents\visual studio 2010\Projects\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer.Properties.Resources.resources
+c:\users\staz2020\documents\visual studio 2010\Projects\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer.csproj.GenerateResource.Cache
+c:\users\staz2020\documents\visual studio 2010\Projects\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer.exe
+c:\users\staz2020\documents\visual studio 2010\Projects\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer.pdb
+C:\Users\staz2020\Desktop\Inne\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer.exe
+C:\Users\staz2020\Desktop\Inne\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer.pdb
+C:\Users\staz2020\Desktop\Inne\EDICodeViewer\EDICodeViewer\bin\Debug\EDICodeViewer.exe
+C:\Users\staz2020\Desktop\Inne\EDICodeViewer\EDICodeViewer\bin\Debug\EDICodeViewer.pdb
+C:\Users\staz2020\Desktop\Inne\EDICodeViewer\EDICodeViewer\obj\x86\Debug\MainWindow.baml
+C:\Users\staz2020\Desktop\Inne\EDICodeViewer\EDICodeViewer\obj\x86\Debug\MainWindow.g.cs
+C:\Users\staz2020\Desktop\Inne\EDICodeViewer\EDICodeViewer\obj\x86\Debug\App.g.cs
+C:\Users\staz2020\Desktop\Inne\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer_MarkupCompile.cache
+C:\Users\staz2020\Desktop\Inne\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer.g.resources
+C:\Users\staz2020\Desktop\Inne\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer.Properties.Resources.resources
+C:\Users\staz2020\Desktop\Inne\EDICodeViewer\EDICodeViewer\obj\x86\Debug\EDICodeViewer.csproj.GenerateResource.Cache
