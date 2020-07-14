@@ -159,9 +159,12 @@ namespace EDICodeViewer
 
         private void chkbxSepare_Checked(object sender, RoutedEventArgs e)
         {
-            chkbxCutEmpty.IsEnabled = true;
+            chkbxCutEmpty.IsEnabled = false;
+            chkbxCutEmpty.IsChecked = false;
             chkbxCutCharacters.IsEnabled = true;
             chkbxCutCenter.IsEnabled = true;
+            tbxSeparator.IsEnabled = true;
+            tbxAction.IsEnabled = true;
         }
 
         private void chkbxSepare_Unchecked(object sender, RoutedEventArgs e)
@@ -172,6 +175,10 @@ namespace EDICodeViewer
             chkbxCutEmpty.IsEnabled = false;
             chkbxCutCharacters.IsEnabled = false;
             chkbxCutCenter.IsEnabled = false;
+            tbxSeparator.IsEnabled = false;
+            tbxAction.IsEnabled = false;
+            tbxStart.IsEnabled = false;
+            tbxEnd.IsEnabled = false;
         }
 
         private void chkbxCutCharacters_Checked(object sender, RoutedEventArgs e)
@@ -183,6 +190,18 @@ namespace EDICodeViewer
         {
             chkbxCutEmpty.IsChecked = false;
             chkbxCutEmpty.IsEnabled = false;
+        }
+
+        private void chkbxCutCenter_Checked(object sender, RoutedEventArgs e)
+        {
+            tbxStart.IsEnabled = true;
+            tbxEnd.IsEnabled = true;
+        }
+
+        private void chkbxCutCenter_Unchecked(object sender, RoutedEventArgs e)
+        {
+            tbxStart.IsEnabled = false;
+            tbxEnd.IsEnabled = false;
         }
 
 
