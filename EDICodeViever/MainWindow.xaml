@@ -31,16 +31,16 @@
         <TextBox Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="11,52,0,0" x:Name="tbxSeparator" VerticalAlignment="Top" Width="75" Text="'" TextAlignment="Center"/>
         <Label Content="After separator" Height="28" HorizontalAlignment="Left" Margin="102,29,0,0" x:Name="label2" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Width="94"/>
         <TextBox HorizontalAlignment="Left" Margin="108,52,0,0" x:Name="tbxAction" Width="75" Grid.Column="1" Grid.Row="1" Text="\n" TextAlignment="Center" Height="23" VerticalAlignment="Top"/>
-        <Label Content="Początek" HorizontalAlignment="Left" Margin="11,183,0,171" x:Name="label4" Grid.Column="1" Grid.Row="1" Width="59"/>
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="11,206,0,0" x:Name="tbxStart" Text="UNH" TextAlignment="Center" VerticalAlignment="Top" Width="75" Grid.Column="1" Grid.Row="1"/>
-        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="123,206,0,0" x:Name="tbxEnd" Text="UNT" TextAlignment="Center" VerticalAlignment="Top" Width="73" Grid.Column="1"/>
-        <Label Content="Koniec" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="119,182,0,0" x:Name="label5" VerticalAlignment="Top" Grid.Column="1" Width="46"/>
+        <Label Content="Początek" HorizontalAlignment="Left" Margin="11,183,0,166" x:Name="label4" Grid.Column="1" Grid.Row="1" Width="75"/>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="11,215,0,0" x:Name="tbxStart" Text="UNH" TextAlignment="Center" VerticalAlignment="Top" Width="75" Grid.Column="1" Grid.Row="1"/>
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="123,215,0,0" x:Name="tbxEnd" Text="UNT" TextAlignment="Center" VerticalAlignment="Top" Width="73" Grid.Column="1"/>
+        <Label Content="Koniec" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="119,182,0,0" x:Name="label5" VerticalAlignment="Top" Grid.Column="1" Width="64"/>
         <Button Content="Ratować" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="11,9,0,0" x:Name="btnRatowac" VerticalAlignment="Top" Width="185" Click="btnRatowac_Click"/>
         <CheckBox Content="Wytnij puste pola" Grid.Column="1" Grid.Row="1" Height="16" HorizontalAlignment="Left" Margin="11,125,0,0" x:Name="chkbxCutEmpty" VerticalAlignment="Top" Width="122"/>
         <CheckBox Checked="chkbxSepare_Checked" Unchecked="chkbxSepare_Unchecked" Content="Separuj" Height="16" HorizontalAlignment="Left" Margin="11,8,0,0" x:Name="chkbxSepare" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Width="65"/>
         <CheckBox Content="Wytnij środek dekumentu" Checked="chkbxCutCenter_Checked" Unchecked="chkbxCutCenter_Unchecked" Height="16" HorizontalAlignment="Left" Margin="11,161,0,0" x:Name="chkbxCutCenter" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Width="170"/>
         <CheckBox Checked="chkbxCutCharacters_Checked" Unchecked="chkbxCutCharacters_Unchecked" Content="Wytnij niedzowolone znaki" Height="16" HorizontalAlignment="Left" Margin="11,103,0,0" x:Name="chkbxCutCharacters" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Width="172"/>
-        <Button Content="Przerób pliki" Height="23" HorizontalAlignment="Left" Margin="11,238,0,0" x:Name="btnChangeFiles" VerticalAlignment="Top" Width="185" Grid.Column="1" Grid.Row="1" Click="btnChangeFiles_Click"/>
+        <Button Content="Przerób pliki" Height="23" HorizontalAlignment="Left" Margin="11,247,0,0" x:Name="btnChangeFiles" VerticalAlignment="Top" Width="185" Grid.Column="1" Grid.Row="1" Click="btnChangeFiles_Click"/>
 
     </Grid>
 </Window>
