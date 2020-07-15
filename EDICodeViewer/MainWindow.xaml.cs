@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using Microsoft.Win32;
 
 namespace EDICodeViewer
 {
@@ -28,6 +29,9 @@ namespace EDICodeViewer
             chkbxCutCharacters.IsChecked = true;
             chkbxCutCenter.IsChecked = true;
         }
+
+        static string pathDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        static string pathDestination = pathDesktop + "\\EDICodeViever Out\\";
 
         private void Separe()
         {
@@ -202,6 +206,71 @@ namespace EDICodeViewer
         {
             tbxStart.IsEnabled = false;
             tbxEnd.IsEnabled = false;
+        }
+
+
+        string CutFileName(string input)
+        {
+            string tmp = "";
+            for (int clk = input.Length-1; clk > 0; clk--)
+            {
+                if (input[clk] == '\\')
+                {
+                    tmp = ReverseStr(tmp);
+                    return tmp;
+                }
+                tmp += input[clk];
+
+            }
+            tmp = ReverseStr(tmp);
+            return tmp;
+        }
+
+        private void btnChangeFiles_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+			openFileDialog.Multiselect = true;
+			openFileDialog.Filter = "All files (*.*)|*.*|Text files (*.txt)|*.txt";
+			openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			if(openFileDialog.ShowDialog() == true)
+			{
+
+                if (!Directory.Exists(pathDestination)) Directory.CreateDirectory(pathDestination);
+                else
+                {
+                    Directory.Delete(pathDestination, true);
+                    Directory.CreateDirectory(pathDestination);
+                }
+                int index = 0;
+				foreach(string filename in openFileDialog.FileNames){
+                    try
+                    {   // Open the text file using a stream reader.
+                        using (StreamReader sr = new StreamReader(filename))
+                        {
+                            String line = sr.ReadToEnd();
+                            tbxIn.Text = line;
+                            object tmpo = null;
+                            RoutedEventArgs tmpr = null;
+                            btnRatowac_Click(tmpo, tmpr);
+                        }
+                        string path = pathDestination + "EDICodeVieverOUT_" + CutFileName(filename);
+                        if (!File.Exists(path))
+                        {
+                            using (StreamWriter sw = File.CreateText(path))
+                            {
+                                sw.Write(tbxOut.Text);
+                            }
+                        }
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show("The file could not be read:\n" + ex.Message);
+                    }
+                    index++;
+                }
+			}
+            tbxIn.Text = "GOTOWE!";
+            tbxOut.Text = "";
         }
 
 

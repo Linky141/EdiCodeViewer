@@ -61,5 +61,13 @@
                 </RadialGradientBrush>
             </CheckBox.Background>
         </CheckBox>
+        <Button BorderBrush="#0000900B" Content="Przerób pliki" Foreground="#FFC7C773" Height="23" HorizontalAlignment="Left" Margin="11,238,0,0" Name="btnChangeFiles" VerticalAlignment="Top" Width="154" Grid.Column="1" Grid.Row="1" Click="btnChangeFiles_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1D1D1D" Offset="0.245" />
+                    <GradientStop Color="#FFC7C773" Offset="0" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>
