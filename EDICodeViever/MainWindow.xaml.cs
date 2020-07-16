@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace EDICodeViever
 {
@@ -29,14 +31,17 @@ namespace EDICodeViever
             chkbxCutEmpty.IsChecked = true;
             chkbxCutCharacters.IsChecked = true;
             chkbxCutCenter.IsChecked = true;
+            pbarWorkingWithFiles.Visibility = Visibility.Hidden;
         }
 
         static string pathDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         static string pathDestination = pathDesktop + "\\EDICodeViever Out\\";
+        bool WindowMaximalized = false;
+        bool LockerTowrite = false;
 
-        private void Separe()
+        private string Separe(string input)
         {
-            string noFormatted = tbxIn.Text;
+            string noFormatted = input;
             string formatted = "";
 
             for (int clk = 0; clk < noFormatted.Length; clk++)
@@ -50,7 +55,7 @@ namespace EDICodeViever
                 }
             }
 
-            tbxOut.Text = formatted;
+            return formatted;
         }
 
 
@@ -64,7 +69,7 @@ namespace EDICodeViever
             return output;
         }
 
-        private void CutCharacters()
+        private string CutCharacters(string input)
         {
             try
             {
@@ -78,10 +83,13 @@ namespace EDICodeViever
                         goodCharacters.Add(line);
                     }
                 }
+                goodCharacters.Add("\n");
+                goodCharacters.Add("\r");
+                goodCharacters.Add("\r\n");
 
-                string noEdited = tbxOut.Text;
+
+                string noEdited = input;
                 string edited = "";
-                tbxOut.Text = "";
 
                 for (int clk = 0; clk < noEdited.Length; clk++)
                 {
@@ -111,56 +119,53 @@ namespace EDICodeViever
                 //edited2.Reverse();
                 edited2 = ReverseStr(edited2);
 
-                tbxIn.Text = edited2;
-                object obj = null;
-                RoutedEventArgs rag = null;
-                Separe();
-
-
+                return edited2;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            return null;
         }
 
-        private void CutCenter()
+        private string CutCenter(string input)
         {
-            string surowy = tbxOut.Text;
+            string surowy = input;
             string[] lines = surowy.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
             string output = "";
             bool adding = false;
             for (int clk = 0; clk < lines.Length; clk++)
             {
                 if (lines[clk].Length >= 3) if (lines[clk].Substring(0, 3) == tbxStart.Text) adding = true;
-                if (adding) output += lines[clk];
+                if (adding) output += lines[clk] + "\r\n";
                 if (lines[clk].Length >= 3) if (lines[clk].Substring(0, 3) == tbxEnd.Text) adding = false;
             }
 
-            tbxIn.Text = output;
-            object obj = null;
-            RoutedEventArgs rag = null;
-            Separe();
+            return output;
+            
 
 
         }
 
         private void btnRatowac_Click(object sender, RoutedEventArgs e)
         {
+            LockerTowrite = true;
+
             if (chkbxSepare.IsChecked == true)
             {
-                Separe();
-
+                string text = tbxIn.Text;
+                text = Separe(text);
                 if (chkbxCutCharacters.IsChecked == true)
                 {
-                    CutCharacters();
+                    text=CutCharacters(text);
                 }
                 if (chkbxCutCenter.IsChecked == true)
                 {
-                    CutCenter();
+                    text=CutCenter(text);
                 }
+                tbxOut.Text = text;
             }
-
+            LockerTowrite = false;
         }
 
         private void chkbxSepare_Checked(object sender, RoutedEventArgs e)
@@ -228,15 +233,22 @@ namespace EDICodeViever
             return tmp;
         }
 
-        private void btnChangeFiles_Click(object sender, RoutedEventArgs e)
+        private async void btnChangeFiles_Click(object sender, RoutedEventArgs e)
         {
+            btnChangeFiles.Visibility = Visibility.Hidden;
+            btnChangeFiles.Opacity = 0;
+            pbarWorkingWithFiles.Visibility = Visibility.Visible;
+            pbarWorkingWithFiles.Opacity = 1;
+            pbarWorkingWithFiles.Value = 0;
+            pbarWorkingWithFiles.Minimum = 0;
+            await Task.Run(() => {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
             openFileDialog.Filter = "All files (*.*)|*.*|Text files (*.txt)|*.txt";
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (openFileDialog.ShowDialog() == true)
             {
-
+                    pbarWorkingWithFiles.Dispatcher.Invoke(() => pbarWorkingWithFiles.Maximum = openFileDialog.FileNames.Length);
                 if (!Directory.Exists(pathDestination)) Directory.CreateDirectory(pathDestination);
                 else
                 {
@@ -246,37 +258,81 @@ namespace EDICodeViever
                 int index = 0;
                 foreach (string filename in openFileDialog.FileNames)
                 {
-                    try
-                    {   // Open the text file using a stream reader.
-                        using (StreamReader sr = new StreamReader(filename))
+                        try
                         {
-                            String line = sr.ReadToEnd();
-                            tbxIn.Text = line;
-                            object tmpo = null;
-                            RoutedEventArgs tmpr = null;
-                            btnRatowac_Click(tmpo, tmpr);
-                        }
-                        string path = pathDestination + "EDICodeVieverOUT_" + CutFileName(filename);
-                        if (!File.Exists(path))
-                        {
-                            using (StreamWriter sw = File.CreateText(path))
+                            using (StreamReader sr = new StreamReader(filename))
                             {
-                                sw.Write(tbxOut.Text);
+                                string line = sr.ReadToEnd();
+                                tbxIn.Dispatcher.Invoke(() => tbxIn.Text = line);
+                                object tmpo = null;
+                                RoutedEventArgs tmpr = null;
+                                btnRatowac.Dispatcher.Invoke(() => btnRatowac_Click(tmpo, tmpr));
+                                
+                            }
+                            while(LockerTowrite) Thread.Sleep(100);
+                            string path = pathDestination + "EDICodeVieverOUT_" + CutFileName(filename);
+                            if (!File.Exists(path))
+                            {
+                                using (StreamWriter sw = File.CreateText(path))
+                                {
+                                    string tmp = "";                                   
+                                    tbxOut.Dispatcher.Invoke(() => tmp = tbxOut.Text);
+                                 //   MessageBox.Show(tmp);
+                                    sw.Write(tmp);
+                                }
                             }
                         }
+                        catch (IOException ex)
+                        {
+                            MessageBox.Show("The file could not be read:\n" + ex.Message);
+                        }
+                        index++;
+                        pbarWorkingWithFiles.Dispatcher.Invoke(() => pbarWorkingWithFiles.Value++);
                     }
-                    catch (IOException ex)
-                    {
-                        MessageBox.Show("The file could not be read:\n" + ex.Message);
-                    }
-                    index++;
-                }
+                
             }
-            tbxIn.Text = "GOTOWE!";
-            tbxOut.Text = "";
+                tbxIn.Dispatcher.Invoke(() => tbxIn.Text = "GOTOWE!");
+                tbxOut.Dispatcher.Invoke(() => tbxOut.Text = "");
+
+                for (int clk = 0; clk < 10; clk++) { pbarWorkingWithFiles.Dispatcher.Invoke(() => pbarWorkingWithFiles.Opacity -= 0.1); Thread.Sleep(50); }
+                btnChangeFiles.Dispatcher.Invoke(() => btnChangeFiles.Visibility = Visibility.Visible);
+                for (int clk = 0; clk < 10; clk++) { btnChangeFiles.Dispatcher.Invoke(() => btnChangeFiles.Opacity += 0.1); Thread.Sleep(50); }
+                Thread.Sleep(200);
+                pbarWorkingWithFiles.Dispatcher.Invoke(() => pbarWorkingWithFiles.Visibility = Visibility.Hidden);
+
+            });
         }
 
+        private void btnMinimalise_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
 
+        private void btnMaximalise_Click(object sender, RoutedEventArgs e)
+        {
+            if (!WindowMaximalized)
+            {
+                WindowState = WindowState.Maximized;
+                WindowMaximalized = true;
+                btnMaximalise.Content = "v";
+            }
+            else
+            {
+                WindowState = WindowState.Normal;
+                WindowMaximalized = false;
+                btnMaximalise.Content = "^";
+            }
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left) this.DragMove();
+        }
     }
 }
 

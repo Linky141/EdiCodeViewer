@@ -15,32 +15,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-Namespace:EDICodeViever"
         mc:Ignorable="d"
-        Title="EDI Code Viever (v,2,0)" Height="450" Width="872.386">
+        Title="EDI Code Viever (v,2,0)" Height="450" Width="872.386" WindowStartupLocation="CenterScreen" WindowStyle="None" MouseDown="Window_MouseDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="38" />
-            <RowDefinition Height="273*" />
+            <RowDefinition Height="38" />
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="206" />
         </Grid.ColumnDefinitions>
-        <TextBox Margin="12,12,10,3" x:Name="tbxIn" ></TextBox>
-        <TextBox Margin="12,6,10,12" x:Name="tbxOut" Grid.Row="1" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" />
-        <Label Content="Separator" Grid.Column="1" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="11,29,0,0" x:Name="label1" VerticalAlignment="Top" Width="64"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="11,52,0,0" x:Name="tbxSeparator" VerticalAlignment="Top" Width="75" Text="'" TextAlignment="Center"/>
-        <Label Content="After separator" Height="28" HorizontalAlignment="Left" Margin="102,29,0,0" x:Name="label2" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Width="94"/>
-        <TextBox HorizontalAlignment="Left" Margin="108,52,0,0" x:Name="tbxAction" Width="75" Grid.Column="1" Grid.Row="1" Text="\n" TextAlignment="Center" Height="23" VerticalAlignment="Top"/>
-        <Label Content="Początek" HorizontalAlignment="Left" Margin="11,183,0,166" x:Name="label4" Grid.Column="1" Grid.Row="1" Width="75"/>
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="11,215,0,0" x:Name="tbxStart" Text="UNH" TextAlignment="Center" VerticalAlignment="Top" Width="75" Grid.Column="1" Grid.Row="1"/>
-        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="123,215,0,0" x:Name="tbxEnd" Text="UNT" TextAlignment="Center" VerticalAlignment="Top" Width="73" Grid.Column="1"/>
-        <Label Content="Koniec" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="119,182,0,0" x:Name="label5" VerticalAlignment="Top" Grid.Column="1" Width="64"/>
-        <Button Content="Ratować" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="11,9,0,0" x:Name="btnRatowac" VerticalAlignment="Top" Width="185" Click="btnRatowac_Click"/>
-        <CheckBox Content="Wytnij puste pola" Grid.Column="1" Grid.Row="1" Height="16" HorizontalAlignment="Left" Margin="11,125,0,0" x:Name="chkbxCutEmpty" VerticalAlignment="Top" Width="122"/>
-        <CheckBox Checked="chkbxSepare_Checked" Unchecked="chkbxSepare_Unchecked" Content="Separuj" Height="16" HorizontalAlignment="Left" Margin="11,8,0,0" x:Name="chkbxSepare" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Width="65"/>
-        <CheckBox Content="Wytnij środek dekumentu" Checked="chkbxCutCenter_Checked" Unchecked="chkbxCutCenter_Unchecked" Height="16" HorizontalAlignment="Left" Margin="11,161,0,0" x:Name="chkbxCutCenter" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Width="170"/>
-        <CheckBox Checked="chkbxCutCharacters_Checked" Unchecked="chkbxCutCharacters_Unchecked" Content="Wytnij niedzowolone znaki" Height="16" HorizontalAlignment="Left" Margin="11,103,0,0" x:Name="chkbxCutCharacters" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Width="172"/>
-        <Button Content="Przerób pliki" Height="23" HorizontalAlignment="Left" Margin="11,247,0,0" x:Name="btnChangeFiles" VerticalAlignment="Top" Width="185" Grid.Column="1" Grid.Row="1" Click="btnChangeFiles_Click"/>
+        <TextBox Margin="10,8,12,7" x:Name="tbxIn" Grid.Row="1" />
+        <TextBox Margin="12,11,10,10" x:Name="tbxOut" Grid.Row="2" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" />
+        <Label Content="Separator" Grid.Column="1" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="10,32,0,0" x:Name="label1" VerticalAlignment="Top" Width="64"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="10,55,0,0" x:Name="tbxSeparator" VerticalAlignment="Top" Width="75" Text="'" TextAlignment="Center"/>
+        <Label Content="After separator" Height="28" HorizontalAlignment="Left" Margin="101,32,0,0" x:Name="label2" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" Width="94"/>
+        <TextBox HorizontalAlignment="Left" Margin="107,55,0,0" x:Name="tbxAction" Width="75" Grid.Column="1" Grid.Row="2" Text="\n" TextAlignment="Center" Height="23" VerticalAlignment="Top"/>
+        <Label Content="Początek" HorizontalAlignment="Left" Margin="10,186,0,130" x:Name="label4" Grid.Column="1" Grid.Row="2" Width="59"/>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="10,209,0,0" x:Name="tbxStart" Text="UNH" TextAlignment="Center" VerticalAlignment="Top" Width="75" Grid.Column="1" Grid.Row="2"/>
+        <TextBox Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="122,209,0,0" x:Name="tbxEnd" Text="UNT" TextAlignment="Center" VerticalAlignment="Top" Width="73" Grid.Column="1"/>
+        <Label Content="Koniec" Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="118,185,0,0" x:Name="label5" VerticalAlignment="Top" Grid.Column="1" Width="46"/>
+        <Button Content="Ratować" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="10,8,0,0" x:Name="btnRatowac" VerticalAlignment="Top" Width="185" Click="btnRatowac_Click" Grid.Row="1"/>
+        <CheckBox Content="Wytnij puste pola" Grid.Column="1" Grid.Row="2" Height="16" HorizontalAlignment="Left" Margin="10,128,0,0" x:Name="chkbxCutEmpty" VerticalAlignment="Top" Width="122"/>
+        <CheckBox Checked="chkbxSepare_Checked" Unchecked="chkbxSepare_Unchecked" Content="Separuj" Height="16" HorizontalAlignment="Left" Margin="10,11,0,0" x:Name="chkbxSepare" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" Width="65"/>
+        <CheckBox Content="Wytnij środek dekumentu" Checked="chkbxCutCenter_Checked" Unchecked="chkbxCutCenter_Unchecked" Height="16" HorizontalAlignment="Left" Margin="10,164,0,0" x:Name="chkbxCutCenter" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" Width="170"/>
+        <CheckBox Checked="chkbxCutCharacters_Checked" Unchecked="chkbxCutCharacters_Unchecked" Content="Wytnij niedzowolone znaki" Height="16" HorizontalAlignment="Left" Margin="10,106,0,0" x:Name="chkbxCutCharacters" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" Width="172"/>
+        <Button Content="Przerób pliki" Height="23" HorizontalAlignment="Left" Margin="10,241,0,0" x:Name="btnChangeFiles" VerticalAlignment="Top" Width="185" Grid.Column="1" Grid.Row="2" Click="btnChangeFiles_Click"/>
+        <Label Content="EDI Code Viever (v.2.0)" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="#DDAAAAAA"/>
+        <Button Content="X" Grid.Column="1" HorizontalAlignment="Left" Margin="146,5,0,0" VerticalAlignment="Top" Width="50" Style="{StaticResource MaterialDesignFlatAccentButton}" x:Name="btnClose" Click="btnClose_Click"/>
+        <Button Content="^" Grid.Column="1" HorizontalAlignment="Left" Margin="82,5,0,0" VerticalAlignment="Top" Width="50" Style="{StaticResource MaterialDesignFlatButton}" x:Name="btnMaximalise" Click="btnMaximalise_Click"/>
+        <Button Content="_" Grid.Column="1" HorizontalAlignment="Left" Margin="19,5,0,0" VerticalAlignment="Top" Width="50" Style="{StaticResource MaterialDesignFlatButton}" x:Name="btnMinimalise" Click="btnMinimalise_Click"/>
+        <ProgressBar x:Name="pbarWorkingWithFiles" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,241,0,0" Grid.Row="2" VerticalAlignment="Top" Width="185"/>
 
     </Grid>
 </Window>
