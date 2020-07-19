@@ -20,3 +20,25 @@ C:\Users\Tomasz Bielas\Documents\Programowanie\VisualStudio\EDICodeViever\EDICod
 C:\Users\Tomasz Bielas\Documents\Programowanie\VisualStudio\EDICodeViever\EDICodeViever\obj\Debug\EDICodeViever_MarkupCompile.lref
 C:\Users\Tomasz Bielas\Documents\Programowanie\VisualStudio\EDICodeViever\EDICodeViever\obj\Debug\App.baml
 C:\Users\Tomasz Bielas\Documents\Programowanie\VisualStudio\EDICodeViever\EDICodeViever\obj\Debug\EDICodeViever.csproj.CopyComplete
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Debug\EDICodeViever.exe.config
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Debug\EDICodeViever.exe
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Debug\EDICodeViever.pdb
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Debug\MaterialDesignColors.dll
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Debug\MaterialDesignColors.pdb
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\EDICodeViever.csprojAssemblyReference.cache
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\MainWindow.baml
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\MainWindow.g.cs
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\App.g.cs
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\EDICodeViever_MarkupCompile.cache
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\EDICodeViever_MarkupCompile.lref
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\App.baml
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\EDICodeViever.g.resources
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\EDICodeViever.Properties.Resources.resources
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\EDICodeViever.csproj.GenerateResource.cache
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\EDICodeViever.csproj.CoreCompileInputs.cache
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\EDICodeViever.csproj.CopyComplete
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\EDICodeViever.exe
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Debug\EDICodeViever.pdb

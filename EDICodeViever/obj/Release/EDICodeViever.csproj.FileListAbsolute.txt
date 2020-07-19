@@ -20,3 +20,25 @@ C:\Users\Tomasz Bielas\Documents\Programowanie\VisualStudio\EDICodeViever\EDICod
 C:\Users\Tomasz Bielas\Documents\Programowanie\VisualStudio\EDICodeViever\EDICodeViever\obj\Release\EDICodeViever.exe
 C:\Users\Tomasz Bielas\Documents\Programowanie\VisualStudio\EDICodeViever\EDICodeViever\obj\Release\EDICodeViever.pdb
 C:\Users\Tomasz Bielas\Documents\Programowanie\VisualStudio\EDICodeViever\EDICodeViever\obj\Release\EDICodeViever.csprojAssemblyReference.cache
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Release\EDICodeViever.exe.config
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Release\EDICodeViever.exe
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Release\EDICodeViever.pdb
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Release\MaterialDesignColors.dll
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Release\MaterialDesignThemes.Wpf.dll
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Release\MaterialDesignColors.pdb
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Release\MaterialDesignThemes.Wpf.pdb
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\bin\Release\MaterialDesignThemes.Wpf.xml
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\EDICodeViever.csprojAssemblyReference.cache
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\MainWindow.baml
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\MainWindow.g.cs
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\App.g.cs
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\EDICodeViever_MarkupCompile.cache
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\EDICodeViever_MarkupCompile.lref
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\App.baml
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\EDICodeViever.g.resources
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\EDICodeViever.Properties.Resources.resources
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\EDICodeViever.csproj.GenerateResource.cache
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\EDICodeViever.csproj.CoreCompileInputs.cache
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\EDICodeViever.csproj.CopyComplete
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\EDICodeViever.exe
+C:\Users\dmusi\source\repos\EdiCodeViewer\EDICodeViever\obj\Release\EDICodeViever.pdb

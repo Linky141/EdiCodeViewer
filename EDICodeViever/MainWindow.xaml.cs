@@ -24,6 +24,8 @@ namespace EDICodeViever
     /// </summary>
     public partial class MainWindow : Window
     {
+        EdiControler ediConroler;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +34,29 @@ namespace EDICodeViever
             chkbxCutCharacters.IsChecked = true;
             chkbxCutCenter.IsChecked = true;
             pbarWorkingWithFiles.Visibility = Visibility.Hidden;
+
+          
+            chkbxs.Add("chkbxSepare", chkbxSepare);
+            chkbxs.Add("chkbxCutEmpty", chkbxCutEmpty);
+            chkbxs.Add("CutCharacters", chkbxCutCharacters);
+            chkbxs.Add("chkbxCutCenter", chkbxCutCenter);
+
+            tbxs.Add("tbxIn", tbxIn);
+            tbxs.Add("tbxOut", tbxOut);
+            tbxs.Add("tbxStart", tbxStart);
+            tbxs.Add("tbxEnd", tbxEnd);
+            tbxs.Add("tbxAction", tbxAction);
+            tbxs.Add("tbxSeparator", tbxSeparator);
+
+            buttons.Add("btnRatowac", btnRatowac);
+            buttons.Add("btnChangeFiles", btnChangeFiles);
+            buttons.Add("btnClose", btnClose);
+            buttons.Add("btnMaximalise", btnMaximalise);
+            buttons.Add("btnMinimalise", btnMinimalise);
+
+            pbars.Add("pbarWorkingWithFiles", pbarWorkingWithFiles);
+
+            ediConroler = new EdiControler(this, chkbxs, tbxs, buttons, pbars);
         }
 
         static string pathDesktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -39,6 +64,13 @@ namespace EDICodeViever
         bool WindowMaximalized = false;
         bool LockerTowrite = false;
 
+
+        Dictionary<string, CheckBox> chkbxs = new Dictionary<string, CheckBox>();
+        Dictionary<string, TextBox> tbxs = new Dictionary<string, TextBox>();
+        Dictionary<string, Button> buttons = new Dictionary<string, Button>();
+        Dictionary<string, ProgressBar> pbars = new Dictionary<string, ProgressBar>();
+
+        //do usuniecia
         private string Separe(string input)
         {
             string noFormatted = input;
@@ -58,7 +90,7 @@ namespace EDICodeViever
             return formatted;
         }
 
-
+        //do usuniecia
         string ReverseStr(string input)
         {
             string output = "";
@@ -69,6 +101,7 @@ namespace EDICodeViever
             return output;
         }
 
+        //do usuniecia
         private string CutCharacters(string input)
         {
             try
@@ -128,6 +161,7 @@ namespace EDICodeViever
             return null;
         }
 
+        //do usuniecia
         private string CutCenter(string input)
         {
             string surowy = input;
@@ -141,12 +175,10 @@ namespace EDICodeViever
                 if (lines[clk].Length >= 3) if (lines[clk].Substring(0, 3) == tbxEnd.Text) adding = false;
             }
 
-            return output;
-            
-
-
+            return output;    
         }
 
+        //do usuniecia
         private void btnRatowac_Click(object sender, RoutedEventArgs e)
         {
             LockerTowrite = true;
@@ -215,7 +247,7 @@ namespace EDICodeViever
             tbxEnd.IsEnabled = false;
         }
 
-
+        //do usuniecia
         string CutFileName(string input)
         {
             string tmp = "";
@@ -233,6 +265,7 @@ namespace EDICodeViever
             return tmp;
         }
 
+        //do usuniecia
         private async void btnChangeFiles_Click(object sender, RoutedEventArgs e)
         {
             btnChangeFiles.Visibility = Visibility.Hidden;
@@ -332,6 +365,17 @@ namespace EDICodeViever
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left) this.DragMove();
+        }
+
+
+        public void actualiseControls(Dictionary<string, Object> controls)
+        {
+            Dictionary<string, TextBox> txtBoxes = (Dictionary<string, TextBox>)controls["textBoxes"];
+            Dictionary<string, CheckBox> checkBoxes = (Dictionary<string, CheckBox>)controls["checkBoxes"];
+            Dictionary<string, Button> txtboxes = (Dictionary<string, Button>)controls["buttons"];
+
+            //TODO: dodac aktualizacje wszystkich kontrolek
+
         }
     }
 }
