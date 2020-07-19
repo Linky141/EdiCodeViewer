@@ -200,6 +200,7 @@ namespace EDICodeViever
             LockerTowrite = false;
         }
 
+        //do usuniecia
         private void chkbxSepare_Checked(object sender, RoutedEventArgs e)
         {
             chkbxCutEmpty.IsEnabled = false;
@@ -210,6 +211,7 @@ namespace EDICodeViever
             tbxAction.IsEnabled = true;
         }
 
+        //do usuniecia
         private void chkbxSepare_Unchecked(object sender, RoutedEventArgs e)
         {
             chkbxCutEmpty.IsChecked = false;
@@ -224,23 +226,27 @@ namespace EDICodeViever
             tbxEnd.IsEnabled = false;
         }
 
+        //do usuniecia
         private void chkbxCutCharacters_Checked(object sender, RoutedEventArgs e)
         {
             chkbxCutEmpty.IsEnabled = true;
         }
 
+        //do usuniecia
         private void chkbxCutCharacters_Unchecked(object sender, RoutedEventArgs e)
         {
             chkbxCutEmpty.IsChecked = false;
             chkbxCutEmpty.IsEnabled = false;
         }
 
+        //do usuniecia
         private void chkbxCutCenter_Checked(object sender, RoutedEventArgs e)
         {
             tbxStart.IsEnabled = true;
             tbxEnd.IsEnabled = true;
         }
 
+        //do usuniecia
         private void chkbxCutCenter_Unchecked(object sender, RoutedEventArgs e)
         {
             tbxStart.IsEnabled = false;
@@ -341,6 +347,7 @@ namespace EDICodeViever
             WindowState = WindowState.Minimized;
         }
 
+        //zostawic
         private void btnMaximalise_Click(object sender, RoutedEventArgs e)
         {
             if (!WindowMaximalized)
@@ -372,10 +379,55 @@ namespace EDICodeViever
         {
             Dictionary<string, TextBox> txtBoxes = (Dictionary<string, TextBox>)controls["textBoxes"];
             Dictionary<string, CheckBox> checkBoxes = (Dictionary<string, CheckBox>)controls["checkBoxes"];
-            Dictionary<string, Button> txtboxes = (Dictionary<string, Button>)controls["buttons"];
+            Dictionary<string, Button> buttons = (Dictionary<string, Button>)controls["buttons"];
+            Dictionary<string, ProgressBar> pgBars = (Dictionary<string, ProgressBar>)controls["progressBars"];
 
             //TODO: dodac aktualizacje wszystkich kontrolek
+            pbars.Add("pbarWorkingWithFiles", pbarWorkingWithFiles);
 
+            chkbxSepare.IsChecked = checkBoxes["chkbxSepare"].IsChecked;
+            chkbxSepare.IsEnabled = checkBoxes["chkbxSepare"].IsEnabled;
+            chkbxCutEmpty.IsChecked = checkBoxes["chkbxCutEmpty"].IsChecked;
+            chkbxCutEmpty.IsEnabled = checkBoxes["chkbxCutEmpty"].IsEnabled;
+            chkbxCutCharacters.IsChecked = checkBoxes["chkbxCutCharacters"].IsChecked;
+            chkbxCutCharacters.IsEnabled = checkBoxes["chkbxCutCharacters"].IsEnabled;
+            chkbxCutCenter.IsChecked = checkBoxes["chkbxCutCenter"].IsChecked;
+            chkbxCutCenter.IsEnabled = checkBoxes["chkbxCutCenter"].IsEnabled;
+
+            tbxIn.Text = txtBoxes["tbxIn"].Text;
+            tbxIn.IsEnabled = txtBoxes["tbxIn"].IsEnabled;
+            tbxOut.Text = txtBoxes["tbxOut"].Text;
+            tbxOut.IsEnabled = txtBoxes["tbxOut"].IsEnabled;
+            tbxStart.Text = txtBoxes["tbxStart"].Text;
+            tbxStart.IsEnabled = txtBoxes["tbxStart"].IsEnabled;
+            tbxEnd.Text = txtBoxes["tbxEnd"].Text;
+            tbxEnd.IsEnabled = txtBoxes["tbxEnd"].IsEnabled;
+            tbxAction.Text = txtBoxes["tbxAction"].Text;
+            tbxAction.IsEnabled = txtBoxes["tbxAction"].IsEnabled;
+            tbxSeparator.Text = txtBoxes["tbxSeparator"].Text;
+            tbxSeparator.IsEnabled = txtBoxes["tbxSeparator"].IsEnabled;
+
+            btnRatowac.Visibility = buttons["btnRatowac"].Visibility;
+            btnRatowac.Opacity = buttons["btnRatowac"].Opacity;
+            btnRatowac.Content = buttons["btnRatowac"].Content;
+            btnChangeFiles.Visibility = buttons["btnChangeFiles"].Visibility;
+            btnChangeFiles.Opacity = buttons["btnChangeFiles"].Opacity;
+            btnChangeFiles.Content = buttons["btnChangeFiles"].Content;
+            btnClose.Visibility = buttons["btnClose"].Visibility;
+            btnClose.Opacity = buttons["btnClose"].Opacity;
+            btnClose.Content = buttons["btnClose"].Content;
+            btnMaximalise.Visibility = buttons["btnMaximalise"].Visibility;
+            btnMaximalise.Opacity = buttons["btnMaximalise"].Opacity;
+            btnMaximalise.Content = buttons["btnMaximalise"].Content;
+            btnMinimalise.Visibility = buttons["btnMinimalise"].Visibility;
+            btnMinimalise.Opacity = buttons["btnMinimalise"].Opacity;
+            btnMinimalise.Content = buttons["btnMinimalise"].Content;
+
+            pbarWorkingWithFiles.Visibility = pgBars["pbarWorkingWithFiles"].Visibility;
+            pbarWorkingWithFiles.Opacity = pgBars["pbarWorkingWithFiles"].Opacity;
+            pbarWorkingWithFiles.Value = pgBars["pbarWorkingWithFiles"].Value;
+            pbarWorkingWithFiles.Minimum = pgBars["pbarWorkingWithFiles"].Minimum;
+            pbarWorkingWithFiles.Maximum = pgBars["pbarWorkingWithFiles"].Maximum;
         }
     }
 }

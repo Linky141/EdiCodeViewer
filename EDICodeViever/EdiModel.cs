@@ -152,8 +152,6 @@ namespace EDICodeViever
             Dictionary<string, Button> buttons = (Dictionary<string, Button>) controls["buttons"];
             Dictionary<string, ProgressBar> pbars = (Dictionary<string, ProgressBar>)controls["progessBars"]; 
 
-
-
             buttons["btnChangeFiles"].Visibility = Visibility.Hidden;
             buttons["btnChangeFiles"].Opacity = 0;
             pbars["pbarWorkingWithFiles"].Visibility = Visibility.Visible;
@@ -207,15 +205,27 @@ namespace EDICodeViever
                         }
                         index++;
                         pbars["pbarWorkingWithFiles"].Dispatcher.Invoke(() => pbars["pbarWorkingWithFiles"].Value++);
+
+
+                        controls["buttons"] = buttons;
+                        controls["textBoxes"] = txtBoxes;
+                        controls["checkBoxes"] = checkBoxes;
+                        controls["progressBars"] = pbars;
+                        ediControler.actualiseControls();
                     }
 
                 }
                 txtBoxes["tbxIn"].Dispatcher.Invoke(() => txtBoxes["tbxIn"].Text = "GOTOWE!");
                 txtBoxes["tbxOut"].Dispatcher.Invoke(() => txtBoxes["tbxOut"].Text = "");
 
+                controls["textBoxes"] = txtBoxes;
+                ediControler.actualiseControls();
+
                 for (int clk = 0; clk < 10; clk++) 
                 {
                     pbars["pbarWorkingWithFiles"].Dispatcher.Invoke(() => pbars["pbarWorkingWithFiles"].Opacity -= 0.1);
+                    controls["progressBars"] = pbars;
+                    ediControler.actualiseControls();
                     Thread.Sleep(50); 
                 }
                 
@@ -223,25 +233,18 @@ namespace EDICodeViever
 
                 for (int clk = 0; clk < 10; clk++) 
                 {
-                    buttons["btnChangeFiles"].Dispatcher.Invoke(() => buttons["btnChangeFiles"].Opacity += 0.1); 
+                    buttons["btnChangeFiles"].Dispatcher.Invoke(() => buttons["btnChangeFiles"].Opacity += 0.1);
+                    controls["buttons"] = buttons;
+                    ediControler.actualiseControls();
                     Thread.Sleep(50); 
                 }
 
                 Thread.Sleep(200);
                 pbars["pbarWorkingWithFiles"].Dispatcher.Invoke(() => pbars["pbarWorkingWithFiles"].Visibility = Visibility.Hidden);
 
+                controls["progressBars"] = pbars;
+                ediControler.actualiseControls();
             });
-
-
-            controls.Remove("buttons");
-            controls.Remove("textBoxes");
-            controls.Remove("checkBoxes");
-            controls.Remove("progressBars");
-
-            controls.Add("buttons", buttons);
-            controls.Add("textBoxes", txtBoxes);
-            controls.Add("checkBoxes", checkBoxes);
-            controls.Add("progressBars", pbars);
         }
 
 
