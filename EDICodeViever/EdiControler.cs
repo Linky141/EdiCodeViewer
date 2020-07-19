@@ -24,7 +24,8 @@ namespace EDICodeViever
             this.controls.Add("progressBars", pbars);
         }
 
-       public void btnRatowac_Click(object sender, RoutedEventArgs e)
+        //TODO: usunac argumenty, ktore nie sa potrzebne
+        public void btnRatowac_Click(object sender, RoutedEventArgs e)
         {
             LockerToWrite = true;
             Dictionary<string, TextBox> txtBoxes = (Dictionary<string, TextBox>)controls["textBoxes"];
@@ -48,14 +49,13 @@ namespace EDICodeViever
                 txtBoxes["tbxOut"].Text = text;
 
                 //zamiana zedytowanego słownika z textBoxami
-                controls.Remove("textBoxes");
-                controls.Add("textBoxes", txtBoxes);
+                controls["textBoxes"] = txtBoxes;
             }
 
             LockerToWrite = false;
         }
 
-        private void chkbxSepare_Checked(object sender, RoutedEventArgs e)
+        public void chkbxSepare_Checked(object sender, RoutedEventArgs e)
         {
             Dictionary<string, TextBox> txtBoxes = (Dictionary<string, TextBox>)controls["textBoxes"];
             Dictionary<string, CheckBox> checkBoxes = (Dictionary<string, CheckBox>)controls["checkBoxes"];
@@ -81,7 +81,7 @@ namespace EDICodeViever
             //this.controls.Add("buttons", buttons);
         }
 
-        private void chkbxSepare_Unchecked(object sender, RoutedEventArgs e)
+        public void chkbxSepare_Unchecked(object sender, RoutedEventArgs e)
         {
             Dictionary<string, TextBox> txtBoxes = (Dictionary<string, TextBox>)controls["textBoxes"];
             Dictionary<string, CheckBox> checkBoxes = (Dictionary<string, CheckBox>)controls["checkBoxes"];
@@ -103,13 +103,13 @@ namespace EDICodeViever
             this.controls["buttons"] = buttons;
         }
 
-        private void chkbxCutCharacters_Checked(object sender, RoutedEventArgs e)
+        public void chkbxCutCharacters_Checked(object sender, RoutedEventArgs e)
         {
             ((Dictionary<string, CheckBox>)(this.controls["checkBoxes"]))["chkbxCutEmpty"].IsEnabled = true;
             //chkbxCutEmpty.IsEnabled = true;
         }
 
-        private void chkbxCutCharacters_Unchecked(object sender, RoutedEventArgs e)
+        public void chkbxCutCharacters_Unchecked(object sender, RoutedEventArgs e)
         {
             ((Dictionary<string, CheckBox>)(this.controls["checkBoxes"]))["chkbxCutEmpty"].IsEnabled = false;
             ((Dictionary<string, CheckBox>)(this.controls["checkBoxes"]))["chkbxCutEmpty"].IsChecked= false;
@@ -118,7 +118,7 @@ namespace EDICodeViever
             //chkbxCutEmpty.IsEnabled = false;
         }
 
-        private void chkbxCutCenter_Checked(object sender, RoutedEventArgs e)
+        public void chkbxCutCenter_Checked(object sender, RoutedEventArgs e)
         {
             ((Dictionary<string, TextBox>)(this.controls["textBoxes"]))["tbxStart"].IsEnabled = true;
             ((Dictionary<string, TextBox>)(this.controls["textBoxes"]))["tbxEnd"].IsEnabled = true;
@@ -127,13 +127,18 @@ namespace EDICodeViever
             //tbxEnd.IsEnabled = true;
         }
 
-        private void chkbxCutCenter_Unchecked(object sender, RoutedEventArgs e)
+        public void chkbxCutCenter_Unchecked(object sender, RoutedEventArgs e)
         {
             ((Dictionary<string, TextBox>)(this.controls["textBoxes"]))["tbxStart"].IsEnabled = false;
             ((Dictionary<string, TextBox>)(this.controls["textBoxes"]))["tbxEnd"].IsEnabled = false;
 
             //tbxStart.IsEnabled = false;
             //tbxEnd.IsEnabled = false;
+        }
+
+        public void btnChangeFiles_Click(object sender, RoutedEventArgs e)
+        {
+            ediModel.generateFiles(controls);
         }
 
         public void actualiseControls()

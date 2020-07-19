@@ -120,9 +120,16 @@ namespace EDICodeViever
             bool adding = false;
             for (int clk = 0; clk < lines.Length; clk++)
             {
-                if (lines[clk].Length >= 3) if (lines[clk].Substring(0, 3) == tbxStart) adding = true;
-                if (adding) output += lines[clk] + "\r\n";
-                if (lines[clk].Length >= 3) if (lines[clk].Substring(0, 3) == tbxEnd) adding = false;
+                if (lines[clk].Length >= 3) 
+                    if (lines[clk].Substring(0, 3) == tbxStart) 
+                        adding = true;
+
+                if (adding) 
+                    output += lines[clk] + "\r\n";
+                
+                if (lines[clk].Length >= 3) 
+                    if (lines[clk].Substring(0, 3) == tbxEnd) 
+                        adding = false;
             }
 
             return output;
@@ -145,12 +152,12 @@ namespace EDICodeViever
             return tmp;
         }
 
-        private async void setFilesOutput(Dictionary<string, Object> controls)
+        public async void generateFiles(Dictionary<string, Object> controls)
         {
             Dictionary<string, TextBox> txtBoxes = (Dictionary<string, TextBox>) controls["textBoxes"];
             Dictionary<string, CheckBox> checkBoxes = (Dictionary<string, CheckBox>) controls["checkBoxes"];
             Dictionary<string, Button> buttons = (Dictionary<string, Button>) controls["buttons"];
-            Dictionary<string, ProgressBar> pbars = (Dictionary<string, ProgressBar>)controls["progessBars"]; 
+            Dictionary<string, ProgressBar> pbars = (Dictionary<string, ProgressBar>)controls["progressBars"]; 
 
             buttons["btnChangeFiles"].Visibility = Visibility.Hidden;
             buttons["btnChangeFiles"].Opacity = 0;
